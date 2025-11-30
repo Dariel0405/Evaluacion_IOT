@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#111111">
+
+    <!-- Flecha volver -->
+    <ImageButton
+        android:id="@+id/btnBackLogin"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Volver"
+        android:src="@drawable/ic_arrow_back"
+        android:tint="#FFFFFF" />
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/imgLogoRecover"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvRecoverTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recuperar clave"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_below="@id/imgLogoRecover"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp" />
+
+    <!-- Correo -->
+    <EditText
+        android:id="@+id/etEmailRecover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvRecoverTitle"
+        android:layout_marginTop="30dp"
+        android:hint="Correo"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#CCCCCC"
+        android:background="@android:color/transparent"
+        android:paddingBottom="12dp"
+        android:inputType="textEmailAddress"
+        android:layout_marginHorizontal="8dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/etEmailRecover"
+        android:background="#00B8D4" />
+
+    <!-- Botón ENVIAR ENLACE -->
+    <Button
+        android:id="@+id/btnRecover"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/etEmailRecover"
+        android:layout_marginTop="40dp"
+        android:text="Enviar enlace"
+        android:textColor="#000000"
+        android:backgroundTint="#D4B9FF"
+        android:layout_marginHorizontal="8dp" />
+
+</RelativeLayout>

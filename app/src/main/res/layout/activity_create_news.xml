@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#111111"
+    android:padding="24dp">
+
+    <!-- Flecha volver -->
+    <ImageButton
+        android:id="@+id/btnBackNewsList"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Volver"
+        android:src="@drawable/ic_arrow_back"
+        android:tint="#FFFFFF" />
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/imgLogoCreate"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvCreateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear noticia"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@id/imgLogoCreate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp" />
+
+    <!-- Título noticia -->
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCreateTitle"
+        android:layout_marginTop="30dp"
+        android:hint="Título"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#CCCCCC"
+        android:background="@android:color/transparent"
+        android:paddingBottom="10dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/etTitle"
+        android:background="#00B8D4" />
+
+    <!-- Subtítulo -->
+    <EditText
+        android:id="@+id/etSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etTitle"
+        android:layout_marginTop="20dp"
+        android:hint="Subtítulo (opcional)"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#CCCCCC"
+        android:background="@android:color/transparent"
+        android:paddingBottom="10dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/etSubtitle"
+        android:background="#00B8D4" />
+
+    <!-- Contenido -->
+    <EditText
+        android:id="@+id/etContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etSubtitle"
+        android:layout_marginTop="20dp"
+        android:hint="Contenido"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#CCCCCC"
+        android:background="@android:color/transparent"
+        android:inputType="textMultiLine"
+        android:minLines="4"
+        android:gravity="top"
+        android:paddingBottom="10dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/etContent"
+        android:background="#00B8D4" />
+
+    <!-- Botón Guardar -->
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/etContent"
+        android:layout_marginTop="40dp"
+        android:text="Guardar noticia"
+        android:textColor="#000000"
+        android:backgroundTint="#D4B9FF" />
+
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Evaluacion_2</string>
+    <string name="login_title">Iniciar sesión</string>
+<string name="email">Correo</string>
+<string name="password">Contraseña</string>
+<string name="btn_login">Ingresar</string>
+<string name="btn_register_nav">Crear cuenta</string>
+<string name="btn_recover_nav">Recuperar clave</string>
+
+<string name="register_title">Registrar cuenta</string>
+<string name="username">Usuario</string>
+<string name="btn_register">Registrar</string>
+
+<string name="recover_title">Recuperar clave</string>
+<string name="btn_recover">Enviar enlace</string>
+
+<string name="dialog_ok">OK</string>
+<string name="dialog_login_success">Inicio de sesión exitoso (simulado)</string>
+<string name="dialog_login_required">Ingresa correo y contraseña</string>
+<string name="dialog_register_success">Cuenta creada (simulado)</string>
+<string name="dialog_recover_success">Hemos enviado un enlace de recuperación (simulado)</string>
+
+</resources>

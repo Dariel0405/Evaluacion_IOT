@@ -1,0 +1,11 @@
+<resources>
+    <!-- Paleta de la app -->
+    <color name="colorBackground">#121212</color>
+    <color name="colorPrimary">#1E90FF</color>
+    <color name="colorPrimaryVariant">#00BCD4</color>
+    <color name="colorOnBackground">#FFFFFF</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+
+    <!-- Fondo del splash (separado del icono) -->
+    <color name="splash_background">#121212</color>
+</resources>

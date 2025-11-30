@@ -1,0 +1,10 @@
+<resources>
+    <style name="Base.Theme.Evaluacion_2" parent="Theme.Material3.Dark.NoActionBar" />
+    <style name="Theme.Evaluacion_2" parent="Base.Theme.Evaluacion_2" />
+
+    <style name="Theme.Evaluacion_2.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.Evaluacion_2</item>
+    </style>
+</resources>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "942534712191",
+    "project_id": "iots-67dec",
+    "storage_bucket": "iots-67dec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942534712191:android:d4fb583b5565416f06d84a",
+        "android_client_info": {
+          "package_name": "com.example.evaluacion2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARS2WLzYRJtxVvflRWSmHHi3Lp8ufV7uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942534712191:android:4cb45efd2c04cbb906d84a",
+        "android_client_info": {
+          "package_name": "com.example.evaluacion_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARS2WLzYRJtxVvflRWSmHHi3Lp8ufV7uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
