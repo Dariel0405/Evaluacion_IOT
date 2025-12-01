@@ -1,10 +1,29 @@
-<resources>
-    <style name="Base.Theme.Evaluacion_2" parent="Theme.Material3.Dark.NoActionBar" />
-    <style name="Theme.Evaluacion_2" parent="Base.Theme.Evaluacion_2" />
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.Evaluacion_2.Splash" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/splash_background</item>
-        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+    <!-- Tema normal de la app (AppCompat) -->
+    <style name="Theme.Evaluacion_2" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Fondo general de las pantallas -->
+        <item name="android:windowBackground">@drawable/fondo2</item>
+        <item name="android:buttonStyle">@style/Botonneon</item>
+    </style>
+
+    <!-- Tema para el arranque (también AppCompat) -->
+    <style name="Theme.Evaluacion_2.Splash" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Color sólido mientras carga -->
+        <item name="android:windowBackground">@color/app_splash_bg</item>
+
+        <!-- Atributos del splash de Android 12+ (no molestan aunque el parent sea AppCompat) -->
+        <item name="windowSplashScreenBackground">@color/app_splash_bg</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo_nuevo</item>
+        <!-- Cuando termine el splash se usará este tema -->
         <item name="postSplashScreenTheme">@style/Theme.Evaluacion_2</item>
     </style>
+
+    <!-- Botón neón -->
+    <style name="Botonneon" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/botonneon</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

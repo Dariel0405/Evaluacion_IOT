@@ -1,131 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    android:background="#111111">
+    android:background="@drawable/fondo2"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    tools:context=".LoginActivity">
 
-    <!-- LOGO -->
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/ic_launcher_foreground" />
-
-    <!-- TÍTULO -->
-    <TextView
-        android:id="@+id/tvLoginTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Iniciar sesión"
-        android:textColor="#FFFFFF"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_below="@id/imgLogo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp" />
-
-    <!-- INPUT CORREO -->
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvLoginTitle"
-        android:layout_marginTop="30dp"
-        android:hint="Correo"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#CCCCCC"
-        android:background="@android:color/transparent"
-        android:paddingBottom="12dp"
-        android:inputType="textEmailAddress"
-        android:drawablePadding="10dp"
-        android:layout_marginBottom="12dp"
-        android:foreground="?attr/selectableItemBackground"
-        android:translationZ="2dp"
-        android:layout_marginHorizontal="8dp"
-        android:lines="1" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/etEmail"
-        android:background="#00B8D4" />
-
-    <!-- INPUT CONTRASEÑA -->
-    <EditText
-        android:id="@+id/etPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/etEmail"
-        android:layout_marginTop="20dp"
-        android:hint="Contraseña"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#CCCCCC"
-        android:background="@android:color/transparent"
-        android:paddingBottom="12dp"
-        android:inputType="textPassword"
-        android:layout_marginHorizontal="8dp"
-        android:lines="1" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/etPass"
-        android:background="#00B8D4" />
-
-    <!-- BOTÓN INGRESAR -->
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/etPass"
-        android:layout_marginTop="40dp"
-        android:text="Ingresar"
-        android:textColor="#000000"
-        android:backgroundTint="#D4B9FF"
-        android:layout_marginHorizontal="8dp"
-        android:translationZ="3dp" />
-
-    <!-- FOOTER: botones pequeños abajo -->
+    <!-- CONTENIDO CENTRADO -->
     <LinearLayout
-        android:id="@+id/footerOptions"
-        android:layout_width="match_parent"
+        android:id="@+id/contentLogin"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingBottom="24dp"
-        android:layout_marginBottom="12dp">
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- CREAR CUENTA -->
+        <!-- LOGO PEQUEÑO -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:src="@drawable/logo_nuevo"
+            android:contentDescription="Logo de la aplicación"
+            android:layout_marginBottom="16dp" />
+
         <TextView
-            android:id="@+id/btnToRegister"
+            android:id="@+id/tvLoginTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Crear cuenta"
-            android:textColor="#00B8D4"
-            android:textSize="16sp"
-            android:padding="8dp"
-            android:layout_marginEnd="48dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackgroundBorderless" />
+            android:text="Iniciar sesión"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#62F2FF"
+            android:layout_marginBottom="24dp" />
 
-        <!-- RECUPERAR CLAVE -->
-        <TextView
-            android:id="@+id/btnToRecover"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Recuperar clave"
-            android:textColor="#00B8D4"
-            android:textSize="16sp"
-            android:padding="8dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackgroundBorderless" />
+            android:hint="Correo electrónico"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/botonneon"
+            android:textColor="#62F2FF"
+            android:textColorHint="#62F2FF" />
 
+        <EditText
+            android:id="@+id/etPass"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/botonneon"
+            android:textColor="#62F2FF"
+            android:textColorHint="#62F2FF" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="180dp"
+            android:layout_height="48dp"
+            android:text="INICIAR SESIÓN"
+            android:textAllCaps="true"
+            android:textColor="#62F2FF"
+            android:textStyle="bold"
+            android:background="@drawable/botonneon" />
     </LinearLayout>
 
-</RelativeLayout>
+    <!-- TEXTO: VOLVER AL INICIO (ABAJO IZQUIERDA) -->
+    <TextView
+        android:id="@+id/btnBackLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/botonneon"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="12dp"
+        android:text="Volver al inicio"
+        android:textColor="#62F2FF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

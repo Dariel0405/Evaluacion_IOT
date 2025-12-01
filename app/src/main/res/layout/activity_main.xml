@@ -1,19 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/fondo2"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imgLogoMain"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/logo_nuevo"
+        android:contentDescription="Logo de la aplicación"
+        android:layout_marginBottom="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnMainLogin"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:text="INICIAR SESIÓN"
+        android:textAllCaps="true"
+        android:textColor="#62F2FF"
+        android:textStyle="bold"
+        android:background="@drawable/botonneon"/>
+
+
+    <Button
+        android:id="@+id/btnMainRegister"
+        android:layout_width="250dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:text="REGISTRAR CUENTA"
+        android:textAllCaps="true"
+        android:textColor="#62F2FF"
+        android:textStyle="bold"
+        android:background="@drawable/botonneon" />
+
+
+    <Button
+        android:id="@+id/btnMainRecover"
+        android:layout_width="250dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/botonneon"
+        android:text="RECUPERAR CLAVE"
+        android:textAllCaps="true"
+        android:textColor="#62F2FF"
+        android:textStyle="bold" />
+
+</LinearLayout>

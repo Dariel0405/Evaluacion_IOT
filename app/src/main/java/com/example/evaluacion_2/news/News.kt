@@ -7,6 +7,6 @@ data class News(
     var content: String = "",
     var authorId: String = "",
     var authorName: String = "",
-    var status: String = "pending",
-    var createdAt: Long = System.currentTimeMillis()
+    var status: String = "",
+    var imageUrl: String? = null   // 👉 NUEVO CAMPO
 )

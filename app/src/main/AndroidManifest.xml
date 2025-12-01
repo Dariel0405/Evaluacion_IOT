@@ -1,30 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.evaluacion_2">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_nuevo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo_nuevo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Evaluacion_2">
+        android:theme="@style/Theme.Evaluacion_2.Splash">
 
-        <activity android:name=".NewsDetailActivity" android:exported="false" />
-        <activity android:name=".NewsListActivity" android:exported="false" />
-        <activity android:name=".CreateNewsActivity" android:exported="false" />
-
-        <activity android:name=".RecoverActivity" android:exported="false" />
-        <activity android:name=".RegisterActivity" android:exported="false" />
+        <!-- Pantallas de noticias -->
+        <activity
+            android:name="com.example.evaluacion_2.NewsDetailActivity"
+            android:exported="false" />
 
         <activity
-            android:name=".LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Evaluacion_2.Splash">
+            android:name="com.example.evaluacion_2.NewsListActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.evaluacion_2.CreateNewsActivity"
+            android:exported="false" />
+
+        <!-- Recuperar clave -->
+        <activity
+            android:name="com.example.evaluacion_2.RecoverActivity"
+            android:exported="false" />
+
+        <!-- Registro de usuario -->
+        <activity
+            android:name="com.example.evaluacion_2.RegisterActivity"
+            android:exported="false" />
+
+        <!-- Login -->
+        <activity
+            android:name="com.example.evaluacion_2.LoginActivity"
+            android:exported="false" />
+
+        <!-- MainActivity: pantalla inicial -->
+        <activity
+            android:name="com.example.evaluacion_2.MainActivity"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

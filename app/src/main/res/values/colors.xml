@@ -1,11 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Paleta de la app -->
+    <!-- Paleta original del proyecto nuevo -->
     <color name="colorBackground">#121212</color>
     <color name="colorPrimary">#1E90FF</color>
     <color name="colorPrimaryVariant">#00BCD4</color>
     <color name="colorOnBackground">#FFFFFF</color>
     <color name="colorOnPrimary">#FFFFFF</color>
 
-    <!-- Fondo del splash (separado del icono) -->
+    <!-- Fondo del splash -->
     <color name="splash_background">#121212</color>
+    <!-- Alias para usar en el theme -->
+    <color name="app_splash_bg">@color/splash_background</color>
+
+    <!-- Colores del diseño antiguo -->
+    <color name="fondo_principal">#E0F7FA</color>
+    <color name="colorBoton">#5600FF</color>
+    <color name="colorTexto">#212121</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
 </resources>

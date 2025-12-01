@@ -2,21 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#111111"
+    android:background="@drawable/fondo2"
     android:padding="24dp">
-
-    <!-- Flecha volver -->
-    <ImageButton
-        android:id="@+id/btnBackNewsList"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Volver"
-        android:src="@drawable/ic_arrow_back"
-        android:tint="#FFFFFF" />
 
     <!-- Logo -->
     <ImageView
@@ -25,7 +12,7 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:src="@drawable/ic_launcher_foreground" />
+        android:src="@drawable/logo_nuevo" />
 
     <!-- Título -->
     <TextView
@@ -33,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Crear noticia"
-        android:textColor="#FFFFFF"
+        android:textColor="#62F2FF"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_below="@id/imgLogoCreate"
@@ -48,67 +35,85 @@
         android:layout_below="@id/tvCreateTitle"
         android:layout_marginTop="30dp"
         android:hint="Título"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#CCCCCC"
+        android:textColor="#62F2FF"
+        android:textColorHint="#62F2FF"
         android:background="@android:color/transparent"
         android:paddingBottom="10dp" />
 
     <View
+        android:id="@+id/dividerTitle"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/etTitle"
-        android:background="#00B8D4" />
+        android:background="#62F2FF" />
 
     <!-- Subtítulo -->
     <EditText
         android:id="@+id/etSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etTitle"
+        android:layout_below="@id/dividerTitle"
         android:layout_marginTop="20dp"
         android:hint="Subtítulo (opcional)"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#CCCCCC"
+        android:textColor="#62F2FF"
+        android:textColorHint="#62F2FF"
         android:background="@android:color/transparent"
         android:paddingBottom="10dp" />
 
     <View
+        android:id="@+id/dividerSubtitle"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/etSubtitle"
-        android:background="#00B8D4" />
+        android:background="#62F2FF" />
 
     <!-- Contenido -->
     <EditText
         android:id="@+id/etContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etSubtitle"
+        android:layout_below="@id/dividerSubtitle"
         android:layout_marginTop="20dp"
         android:hint="Contenido"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#CCCCCC"
+        android:textColor="#62F2FF"
+        android:textColorHint="#62F2FF"
         android:background="@android:color/transparent"
         android:inputType="textMultiLine"
         android:minLines="4"
+        android:maxLines="4"
         android:gravity="top"
         android:paddingBottom="10dp" />
 
     <View
+        android:id="@+id/dividerContent"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/etContent"
-        android:background="#00B8D4" />
+        android:background="#62F2FF" />
 
-    <!-- Botón Guardar -->
+    <!-- Botón Guardar, centrado debajo del contenido -->
     <Button
         android:id="@+id/btnSave"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/etContent"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/dividerContent"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:text="Guardar noticia"
-        android:textColor="#000000"
-        android:backgroundTint="#D4B9FF" />
+        android:textColor="#62F2FF"
+        android:background="@drawable/botonneon" />
+
+
+    <!-- Botón Volver abajo a la izquierda -->
+    <Button
+        android:id="@+id/btnBackBottom"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:text="Volver"
+        android:textColor="#62F2FF"
+        android:background="@drawable/botonneon"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="8dp" />
 
 </RelativeLayout>

@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#1F1F1F"
-    android:layout_marginBottom="8dp">
+    android:padding="12dp"
+    android:background="@android:color/transparent">
 
+    <!-- Mini imagen a la izquierda -->
+    <ImageView
+        android:id="@+id/ivNewsThumb"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/logo_nuevo"
+        android:contentDescription="Imagen noticia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Título a la derecha de la imagen -->
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorOnBackground"
+        android:text="Título de la noticia"
+        android:textColor="#62F2FF"
         android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toEndOf="@id/ivNewsThumb"
+        app:layout_constraintTop_toTopOf="@id/ivNewsThumb"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/tvSubtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#B0BEC5"
-        android:layout_marginTop="4dp"/>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

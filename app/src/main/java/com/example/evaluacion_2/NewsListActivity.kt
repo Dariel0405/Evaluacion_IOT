@@ -3,13 +3,13 @@ package com.example.evaluacion_2
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.evaluacion_2.news.News
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -23,8 +23,10 @@ class NewsListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news_list)
 
+        // RecyclerView y adaptador
         rv = findViewById(R.id.rvNews)
         rv.layoutManager = LinearLayoutManager(this)
+
         adapter = NewsAdapter(newsList) { news ->
             val i = Intent(this, NewsDetailActivity::class.java)
             i.putExtra("news_id", news.id)
@@ -32,10 +34,11 @@ class NewsListActivity : AppCompatActivity() {
         }
         rv.adapter = adapter
 
+        // Firebase
         val db = FirebaseFirestore.getInstance()
         val newsCollection = db.collection("news")
 
-        // Solo noticias aprobadas
+        // Solo noticias aprobadas (ojo con el texto "aprovado" en Firestore)
         newsCollection
             .whereEqualTo("status", "aprovado")
             .addSnapshotListener { snapshot, error ->
@@ -54,12 +57,12 @@ class NewsListActivity : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
 
-        // Cerrar sesión (texto azul con confirmación)
+        // Cerrar sesión
         val btnLogout = findViewById<TextView>(R.id.btnLogout)
         btnLogout.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Cerrar sesión")
-                .setMessage("Estas a punto de cerrar sesión. ¿Estás seguro?")
+                .setMessage("Estás a punto de cerrar sesión. ¿Estás seguro?")
                 .setPositiveButton("Sí") { _: DialogInterface, _: Int ->
                     FirebaseAuth.getInstance().signOut()
                     val intent = Intent(this, LoginActivity::class.java)
@@ -72,8 +75,8 @@ class NewsListActivity : AppCompatActivity() {
                 .show()
         }
 
-        // Botón "+" para crear noticia
-        val btnAddNews = findViewById<FloatingActionButton>(R.id.btnAddNews)
+        // Botón para crear noticia (Button con texto "NUEVA NOTICIA")
+        val btnAddNews = findViewById<Button>(R.id.btnAddNews)
         btnAddNews.setOnClickListener {
             startActivity(Intent(this, CreateNewsActivity::class.java))
         }

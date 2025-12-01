@@ -5,44 +5,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/fondo2"
     tools:context=".NewsListActivity">
 
-    <!-- Texto "Cerrar sesión" arriba a la izquierda -->
+    <!-- Texto "Cerrar sesión" abajo a la izquierda -->
     <TextView
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:text="Cerrar sesión"
-        android:textColor="#00B8D4"
+        android:textColor="#62F2FF"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:padding="8dp"
+        android:padding="10dp"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/botonneon"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="16dp" />
 
-
+    <!-- Logo -->
     <ImageView
         android:id="@+id/ivLogoNews"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/logo_nuevo"
         android:contentDescription="@string/app_name"
-        app:layout_constraintTop_toBottomOf="@id/btnLogout"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="32dp" />
 
+    <!-- Título "Noticias" -->
     <TextView
         android:id="@+id/tvNewsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Noticias"
-        android:textColor="@color/colorOnBackground"
+        android:textColor="#62F2FF"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/ivLogoNews"
@@ -50,28 +52,36 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp" />
 
+    <!-- Lista de noticias -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNews"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/tvNewsTitle"
-        app:layout_constraintBottom_toTopOf="@id/btnAddNews"
+        app:layout_constraintBottom_toTopOf="@id/btnLogout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <!-- Botón para agregar noticia abajo a la derecha -->
+    <Button
         android:id="@+id/btnAddNews"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="Agregar noticia"
-        app:srcCompat="@drawable/ic_add"
-        app:tint="@color/colorOnPrimary"
-        app:backgroundTint="@color/colorPrimary"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/botonneon"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="NUEVA NOTICIA"
+        android:textAllCaps="true"
+        android:textColor="#62F2FF"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintStart_toEndOf="@id/btnLogout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

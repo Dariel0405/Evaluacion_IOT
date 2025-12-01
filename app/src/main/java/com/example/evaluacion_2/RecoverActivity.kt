@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -19,32 +19,43 @@ class RecoverActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        val email = findViewById<EditText>(R.id.etEmailRecover)
+        val btnBackRecover = findViewById<TextView>(R.id.btnBackRecover)
+        val etEmail = findViewById<EditText>(R.id.etRecoverEmail)
         val btnRecover = findViewById<Button>(R.id.btnRecover)
-        val btnBack = findViewById<ImageButton>(R.id.btnBackLogin)
 
-        // Flecha volver → Login
-        btnBack.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+        // 🔙 Volver al inicio (MainActivity)
+        btnBackRecover.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            startActivity(intent)
             finish()
         }
 
-        // Enviar correo de recuperación (Firebase Auth)
+        // Enviar correo de recuperación
         btnRecover.setOnClickListener {
-            val emailText = email.text.toString().trim()
+            val email = etEmail.text.toString().trim()
 
-            if (emailText.isEmpty()) {
-                Toast.makeText(this, "Ingresa un correo válido", Toast.LENGTH_SHORT).show()
+            if (email.isEmpty()) {
+                Toast.makeText(this, "Ingresa tu correo electrónico", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            auth.sendPasswordResetEmail(emailText)
+            auth.sendPasswordResetEmail(email)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "Se envió un enlace a $emailText", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            this,
+                            "Se ha enviado un correo para restablecer tu contraseña",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        finish()
                     } else {
-                        val msg = task.exception?.localizedMessage ?: "Error al enviar el correo"
-                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this,
+                            "Error al enviar el correo: ${task.exception?.message}",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 }
         }
