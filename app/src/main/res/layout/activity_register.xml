@@ -54,6 +54,19 @@
             android:background="@drawable/botonneon"
             android:textColor="#62F2FF"
             android:textColorHint="#62F2FF" />
+        <!-- NOMBRE DE USUARIO -->
+        <EditText
+            android:id="@+id/etRegisterUsername"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de usuario"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/botonneon"
+            android:textColor="#62F2FF"
+            android:textColorHint="#62F2FF" />
+
 
         <!-- CONTRASEÑA -->
         <EditText

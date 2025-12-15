@@ -40,7 +40,7 @@ class NewsListActivity : AppCompatActivity() {
 
         // Solo noticias aprobadas (ojo con el texto "aprovado" en Firestore)
         newsCollection
-            .whereEqualTo("status", "aprovado")
+            .whereEqualTo("status", "aprobado")
             .addSnapshotListener { snapshot, error ->
                 if (error != null || snapshot == null) {
                     return@addSnapshotListener

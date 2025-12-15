@@ -8,18 +8,23 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
         auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
 
         val btnBackRegister = findViewById<TextView>(R.id.btnBackRegister)
+        val etUser = findViewById<EditText>(R.id.etRegisterUsername) // ✅ NUEVO
         val etEmail = findViewById<EditText>(R.id.etRegisterEmail)
         val etPass = findViewById<EditText>(R.id.etRegisterPass)
         val etPassConfirm = findViewById<EditText>(R.id.etRegisterPassConfirm)
@@ -36,11 +41,12 @@ class RegisterActivity : AppCompatActivity() {
 
         // Lógica de registro
         btnRegister.setOnClickListener {
+            val username = etUser.text.toString().trim() // ✅ NUEVO
             val email = etEmail.text.toString().trim()
             val pass = etPass.text.toString().trim()
             val passConfirm = etPassConfirm.text.toString().trim()
 
-            if (email.isEmpty() || pass.isEmpty() || passConfirm.isEmpty()) {
+            if (username.isEmpty() || email.isEmpty() || pass.isEmpty() || passConfirm.isEmpty()) {
                 Toast.makeText(this, "Rellena todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -53,9 +59,38 @@ class RegisterActivity : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "Cuenta creada correctamente", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, LoginActivity::class.java))
-                        finish()
+
+                        val uid = auth.currentUser?.uid
+
+                        if (uid != null) {
+                            // ✅ Crear usuario en colección "users" (separada de "news")
+                            val userData = hashMapOf(
+                                "name" to username, // ✅ AHORA LO DEFINE EL USUARIO
+                                "email" to email,
+                                "createdAt" to FieldValue.serverTimestamp()
+                            )
+
+                            db.collection("users").document(uid).set(userData)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "Cuenta creada correctamente", Toast.LENGTH_SHORT).show()
+                                    startActivity(Intent(this, LoginActivity::class.java))
+                                    finish()
+                                }
+                                .addOnFailureListener { e ->
+                                    Toast.makeText(
+                                        this,
+                                        "Cuenta creada, pero no se pudo guardar en users: ${e.message}",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                    startActivity(Intent(this, LoginActivity::class.java))
+                                    finish()
+                                }
+                        } else {
+                            Toast.makeText(this, "Cuenta creada, pero UID no disponible", Toast.LENGTH_LONG).show()
+                            startActivity(Intent(this, LoginActivity::class.java))
+                            finish()
+                        }
+
                     } else {
                         Toast.makeText(
                             this,
